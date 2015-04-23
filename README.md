@@ -10,10 +10,6 @@ To create the image `savoirfairelinux/influxdb`, execute the following command o
 
     docker build -t savoirfairelinux/influxdb .
 
-You can now push new image to the registry:
-    
-    docker push savoirfairelinux/influxdb
-
 
 Running your InfluxDB image
 --------------------------
