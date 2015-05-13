@@ -1,12 +1,14 @@
-FROM tutum/curl:trusty
-MAINTAINER Feng Honglin <hfeng@tutum.co>
+FROM ubuntu:trusty
+MAINTAINER Alexandre Viau <alexandre@alexandreviau.net>
+
+RUN apt-get update && apt-get install -y curl
 
 # Install InfluxDB
-ENV INFLUXDB_VERSION 0.9.0-rc26
+ENV INFLUXDB_VERSION 0.9.0-rc30
 RUN curl -s -o /tmp/influxdb_latest_amd64.deb https://s3.amazonaws.com/influxdb/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
-  dpkg -i /tmp/influxdb_latest_amd64.deb && \
-  rm /tmp/influxdb_latest_amd64.deb && \
-  rm -rf /var/lib/apt/lists/*
+    dpkg -i /tmp/influxdb_latest_amd64.deb && \
+    rm /tmp/influxdb_latest_amd64.deb && \
+    rm -rf /var/lib/apt/lists/*
 
 ADD config.toml /config/config.toml
 ADD run.sh /run.sh
