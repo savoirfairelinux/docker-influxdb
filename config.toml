@@ -33,7 +33,8 @@ reporting-disabled = false
 
 [data]
   dir = "/var/opt/influxdb/data"
-
+  wal-dir = "/var/opt/influxdb/wal"
+  wal-enable-logging = true
 ###
 ### [cluster]
 ###
@@ -123,7 +124,7 @@ reporting-disabled = false
 ### Controls the listener for InfluxDB line protocol data via UDP.
 ###
 
-[udp]
+[[udp]]
   enabled = false
   # bind-address = ""
   # database = ""
